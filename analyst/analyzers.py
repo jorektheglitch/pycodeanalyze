@@ -9,6 +9,10 @@ from .analytics import Module, Value, Name
 class ModuleAnalyzer(ast.NodeVisitor):
 
     variables: dict[str, Value]
+    module: Module
+
+    def __init__(self, parent: Module | None, name: Name) -> None:
+        self.module = Module(parent, name, [])
 
     @classmethod
     def analyze(
@@ -17,12 +21,12 @@ class ModuleAnalyzer(ast.NodeVisitor):
         parent: Module | None,
         name: Name
     ) -> Module:
-        analyzer = cls()
+        analyzer = cls(parent, name)
         if not isinstance(node, ast.Module):
             raise TypeError
         for stmt in node.body:
             analyzer.visit(stmt)
-        return Module(parent, name, [])
+        return analyzer.module
 
     @overload
     def visit(self, node: ast.expr) -> Value: ...
