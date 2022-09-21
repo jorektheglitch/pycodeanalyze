@@ -51,7 +51,13 @@ class ModuleAnalyzer(ast.NodeVisitor):
         )
 
     def visit_BinOp(self, binop: ast.BinOp) -> Value:
-        pass
+        left = self.visit(binop.left)
+        right = self.visit(binop.right)
+        return Value(
+            self.module, None,
+            dependencies=[left, right],
+            definition=binop
+        )
 
     def visit_UnaryOp(self, unaryop: ast.UnaryOp) -> Value:
         pass
