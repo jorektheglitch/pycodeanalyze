@@ -44,7 +44,11 @@ class ModuleAnalyzer(ast.NodeVisitor):
     # processing all the kinds of expr
 
     def visit_BoolOp(self, boolop: ast.BoolOp) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[self.visit(value) for value in boolop.values],
+            definition=boolop
+        )
 
     def visit_BinOp(self, binop: ast.BinOp) -> Value:
         pass
