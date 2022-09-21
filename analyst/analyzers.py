@@ -68,90 +68,198 @@ class ModuleAnalyzer(ast.NodeVisitor):
         )
 
     def visit_Lambda(self, lambda_: ast.Lambda) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=lambda_
+        )
 
     def visit_IfExp(self, ifexp: ast.IfExp) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=ifexp
+        )
 
     def visit_Dict(self, dict: ast.Dict) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=dict
+        )
 
     def visit_Set(self, set: ast.Set) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=set
+        )
 
     def visit_ListComp(self, listcomp: ast.ListComp) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=listcomp
+        )
 
     def visit_SetComp(self, setcomp: ast.SetComp) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=setcomp
+        )
 
     def visit_DictComp(self, dictcomp: ast.DictComp) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=dictcomp
+        )
 
     def visit_GeneratorExp(self, generatorexp: ast.GeneratorExp) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=generatorexp
+        )
 
     def visit_Await(self, await_: ast.Await) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=await_
+        )
 
     def visit_Yield(self, yield_: ast.Yield) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=yield_
+        )
 
     def visit_YieldFrom(self, yieldfrom: ast.YieldFrom) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=yieldfrom
+        )
 
     def visit_Compare(self, compare: ast.Compare) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=compare
+        )
 
     def visit_Call(self, call: ast.Call) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=call
+        )
 
     def visit_FormattedValue(self, formatted: ast.FormattedValue) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=formatted
+        )
 
     def visit_JoinedStr(self, joinedstr: ast.JoinedStr) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=joinedstr
+        )
 
     if sys.version_info < (3, 8):
         def visit_Num(self, num: ast.Num):
-            pass
+            return Value(
+                self.module, None,
+                dependencies=[],
+                definition=num
+            )
 
         def visit_Constant(self, constant: ast.Constant):
-            pass
+            return Value(
+                self.module, None,
+                dependencies=[],
+                definition=constant
+            )
 
     if sys.version_info >= (3, 8):
         def visit_NamedExpr(self, namedexpr: ast.NamedExpr) -> Value:
-            pass
+            return Value(
+                self.module, None,
+                dependencies=[],
+                definition=namedexpr
+            )
 
         def visit_Attribute(self, attribute: ast.Attribute) -> Value:
-            pass
+            return Value(
+                self.module, None,
+                dependencies=[],
+                definition=attribute
+            )
 
     # there is a something complex with Slice
     # TODO: fix complex things with Slice
     def visit_Slice(self, slice_: ast.Slice) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=slice_
+        )
 
     if sys.version_info < (3, 9):
         def visit_ExtSlice(self, extslice: ast.ExtSlice) -> Value:
-            pass
+            return Value(
+                self.module, None,
+                dependencies=[],
+                definition=extslice
+            )
 
         def visit_Index(self, index: ast.Index) -> Value:
-            pass
+            return Value(
+                self.module, None,
+                dependencies=[],
+                definition=index
+            )
 
     def visit_Subscript(self, subscript: ast.Subscript) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=subscript
+        )
 
     def visit_Starred(self, starred: ast.Starred) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=starred
+        )
 
     def visit_Name(self, name: ast.Name) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=name
+        )
 
     def visit_List(self, list: ast.List) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=list
+        )
 
     def visit_Tuple(self, tuple: ast.Tuple) -> Value:
-        pass
+        return Value(
+            self.module, None,
+            dependencies=[],
+            definition=tuple
+        )
 
     # processing all the kidns of stmt
 
