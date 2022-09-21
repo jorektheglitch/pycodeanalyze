@@ -60,7 +60,12 @@ class ModuleAnalyzer(ast.NodeVisitor):
         )
 
     def visit_UnaryOp(self, unaryop: ast.UnaryOp) -> Value:
-        pass
+        operand = self.visit(unaryop.operand)
+        return Value(
+            self.module, None,
+            dependencies=[operand],
+            definition=unaryop
+        )
 
     def visit_Lambda(self, lambda_: ast.Lambda) -> Value:
         pass
